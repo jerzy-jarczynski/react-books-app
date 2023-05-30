@@ -13,10 +13,26 @@ const UPDATE_BOOKS = createActionName('UPDATE_BOOKS');
 export const removeBook = payload => ({ type: REMOVE_BOOK, payload });
 export const addBook = payload => ({ type: ADD_BOOK, payload });
 export const updateBooks = payload => ({ type: UPDATE_BOOKS, payload });
-export const fetchBooks = dispatch => {
-  fetch('http://localhost:3131/books')
-    .then(res => res.json())
-    .then(books => dispatch(updateBooks(books)));
+export const fetchBooks = () => {
+  return (dispatch) => {
+    fetch('http://localhost:3131/books')
+      .then(res => res.json())
+      .then(books => dispatch(updateBooks(books)));
+    }
+};
+export const addBookRequest = (newBook) => {
+  return (dispatch) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newBook),
+    };
+
+    fetch('http://localhost:3131/books', options)
+      .then(() => dispatch(addBook(newBook)))
+  }
 };
 
 const booksReducer = (statePart = [], action) => {

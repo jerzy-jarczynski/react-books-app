@@ -12,6 +12,7 @@
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
     "shortid": "^2.2.16",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --port 3131 --no-cors --delay 250 --watch public/db/app.json"
+    "server": "json-server --port 3131 --no-cors --watch public/db/app.json"
   },
   "eslintConfig": {
     "extends": [

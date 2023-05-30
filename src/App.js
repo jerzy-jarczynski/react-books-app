@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const App = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => fetchBooks(dispatch), [dispatch]);
+  useEffect(() => dispatch(fetchBooks()), [dispatch]);
 
   return (
     <div>
